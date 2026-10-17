@@ -1,0 +1,235 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --page-bg: #F4F7FB;
+  --card-bg: #FFFFFF;
+  --surface-bg: #EEF2F7;
+  --text-primary: #172033;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+  --accent: #0891B2;
+  --accent-text: #08798F;
+  --teal: #0F766E;
+  --border: #D8E0EA;
+}
+
+@layer base {
+  html {
+    background: var(--page-bg);
+  }
+
+  body {
+    background-color: var(--page-bg);
+    color: var(--text-primary);
+    overflow-x: hidden;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  input,
+  select,
+  textarea {
+    color: var(--text-primary) !important;
+    background-color: var(--surface-bg);
+  }
+
+  input.text-white,
+  select.text-white,
+  textarea.text-white {
+    color: var(--text-primary) !important;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--text-muted);
+    opacity: 1;
+  }
+
+  select option {
+    color: var(--text-primary);
+    background: var(--card-bg);
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 3px solid rgb(8 145 178 / 45%);
+    outline-offset: 2px;
+  }
+
+  button:disabled {
+    opacity: 0.72 !important;
+    cursor: not-allowed;
+  }
+
+  table {
+    color: var(--text-primary);
+  }
+}
+
+/* Keep legacy dark-theme utility classes readable on light surfaces. */
+.text-white {
+  color: var(--text-primary) !important;
+}
+
+.text-industrial-accent,
+.text-cyan-300,
+.text-cyan-400,
+.text-teal-300,
+.text-teal-400,
+.text-sky-400 {
+  color: var(--accent-text) !important;
+}
+
+.text-industrial-secondary {
+  color: var(--teal) !important;
+}
+
+.text-industrial-healthy,
+.text-emerald-300,
+.text-emerald-400 {
+  color: #166534 !important;
+}
+
+.text-industrial-warning,
+.text-amber-300,
+.text-amber-400 {
+  color: #92400E !important;
+}
+
+.text-industrial-critical,
+.text-rose-300,
+.text-rose-400 {
+  color: #B91C1C !important;
+}
+
+.text-slate-300,
+.text-slate-400,
+.text-slate-500,
+.text-slate-600,
+.text-slate-700,
+.text-gray-300,
+.text-gray-400,
+.text-gray-500,
+.text-gray-600,
+.text-gray-700 {
+  color: var(--text-secondary) !important;
+}
+
+.bg-emerald-950\/20,
+.bg-emerald-950\/40,
+.bg-emerald-950\/50,
+.bg-emerald-950\/60,
+.bg-teal-950\/30,
+.bg-teal-950\/60,
+.bg-teal-950\/80 {
+  background-color: #E8F5EC !important;
+}
+
+.bg-amber-950\/40,
+.bg-amber-950\/60 {
+  background-color: #FFF4D6 !important;
+}
+
+.bg-rose-950\/30,
+.bg-rose-950\/40,
+.bg-rose-950\/50,
+.bg-rose-950\/60,
+.bg-rose-900\/60 {
+  background-color: #FDEBEC !important;
+}
+
+.bg-cyan-950\/60,
+.bg-cyan-950\/80,
+.bg-sky-950\/60 {
+  background-color: #E5F5F8 !important;
+}
+
+.border-emerald-500\/20,
+.border-emerald-500\/40,
+.border-amber-500\/40,
+.border-rose-500\/40,
+.border-rose-500\/50,
+.border-cyan-500\/30,
+.border-cyan-500\/40,
+.border-teal-500\/30,
+.border-teal-500\/40 {
+  border-color: var(--border) !important;
+}
+
+.bg-black\/60,
+.bg-black\/70 {
+  background-color: rgb(23 32 51 / 45%) !important;
+}
+
+button.bg-rose-700.text-white,
+button.bg-emerald-700.text-white,
+.bg-industrial-secondary.text-white {
+  color: #FFFFFF !important;
+}
+
+@layer components {
+  .bg-industrial-card {
+    box-shadow: 0 8px 24px -20px rgb(23 32 51 / 38%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Custom light industrial scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--page-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: #BCC8D6;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Print Styles for Reports */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .print-break-inside-avoid {
+    break-inside: avoid;
+  }
+  .card-print {
+    background: #f8fafc !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #0f172a !important;
+    box-shadow: none !important;
+  }
+}
